@@ -1,0 +1,91 @@
+﻿@model List<ControlEscolar.Web.Models.AlumnoDto>
+
+@{
+    ViewData["Title"] = "Alumnos";
+}
+
+<h1 style="color: #1f3d2d;">
+    Lista de alumnos
+</h1>
+
+<a asp-controller="Alumnos"
+   asp-action="Create"
+   style="
+    display: inline-block;
+    background-color: #198754;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;">
+    Agregar alumno
+</a>
+
+<table style="
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;">
+
+    <thead style="
+        background-color: #198754;
+        color: white;">
+
+        <tr>
+            <th style="border: 1px solid #146c43; padding: 8px;">
+                Matrícula
+            </th>
+
+            <th style="border: 1px solid #146c43; padding: 8px;">
+                Id Carrera
+            </th>
+
+            <th style="border: 1px solid #146c43; padding: 8px;">
+                Id Datos Personales
+            </th>
+
+            <th style="border: 1px solid #146c43; padding: 8px;">
+                Estatus
+            </th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var alumno in Model)
+        {
+            <tr>
+                <td style="border: 1px solid #cccccc; padding: 8px;">
+                    @alumno.Matricula
+                </td>
+
+                <td style="border: 1px solid #cccccc; padding: 8px;">
+                    @alumno.IdCarrera
+                </td>
+
+                <td style="border: 1px solid #cccccc; padding: 8px;">
+                    @alumno.IdDatosP
+                </td>
+
+                <td style="border: 1px solid #cccccc; padding: 8px;">
+
+                    @if (alumno.Status == true)
+                    {
+                        <span style="color: #198754; font-weight: bold;">
+                            Activo
+                        </span>
+                    }
+                    else
+                    {
+                        <span style="color: #dc3545; font-weight: bold;">
+                            Inactivo
+                        </span>
+                    }
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

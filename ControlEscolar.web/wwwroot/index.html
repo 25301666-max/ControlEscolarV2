@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Control Escolar</title>
+
+    <style>
+
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --bg: #f8fafc;
+            --text: #334155;
+            --white: #ffffff;
+        }
+
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            min-height: 100vh;
+        }
+
+
+
+        nav {
+            width: 260px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 2rem 1rem;
+        }
+
+
+
+            nav h1 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+
+
+            nav ul {
+                list-style: none;
+            }
+
+
+
+                nav ul li a {
+                    color: var(--white);
+                    text-decoration: none;
+                    display: block;
+                    padding: 0.8rem 1rem;
+                    border-radius: 0.5rem;
+                    margin-bottom: 0.5rem;
+                    transition: 0.3s;
+                }
+
+
+
+                    nav ul li a:hover {
+                        background-color: var(--secondary);
+                    }
+
+
+
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+
+
+        .card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+
+
+            .card h3 {
+                color: #64748b;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+            }
+
+
+
+            .card p {
+                font-size: 2rem;
+                font-weight: bold;
+                color: var(--primary);
+                margin-top: 0.5rem;
+            }
+
+
+
+        .table-container {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+
+
+            .table-container h2 {
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+            }
+
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+
+
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+
+
+        th {
+            background-color: #f1f5f9;
+            color: #475569;
+        }
+
+
+
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+
+
+        .badge-active {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+
+
+        .badge-inactive {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <nav>
+
+        <h1>Control Escolar</h1>
+
+        <ul>
+
+            <li><a href="#dashboard">🏠 Inicio</a></li>
+
+            <li><a href="#alumnos">👨‍🎓 Alumnos</a></li>
+
+            <li><a href="#profesores">👩‍🏫 Profesores</a></li>
+
+            <li><a href="#calificaciones">📝 Calificaciones</a></li>
+
+            <li><a href="#grupos">🏫 Grupos y Horarios</a></li>
+
+            <li><a href="#reportes">📊 Reportes</a></li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <main>
+
+        <header>
+
+            <h2>Panel de Administración</h2>
+
+            <div class="user-info">Bienvenido: <strong>Administrador</strong></div>
+
+        </header>
+
+
+
+        <section class="stats-grid">
+
+            <div class="card">
+
+                <h3>Total Alumnos</h3>
+
+                <p>1,250</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Profesores Activos</h3>
+
+                <p>48</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Grupos Totales</h3>
+
+                <p>32</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Aulas Ocupadas</h3>
+
+                <p>18/20</p>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="table-container">
+
+            <h2>Alumnos Registrados Recientemente</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Matrícula</th>
+
+                        <th>Nombre Completo</th>
+
+                        <th>Grado/Grupo</th>
+
+                        <th>Estado</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>20260001</td>
+
+                        <td>Sofía García López</td>
+
+                        <td>1° Semestre - A</td>
+
+                        <td><span class="badge badge-active">Activo</span></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>20260002</td>
+
+                        <td>Alejandro Martínez Ruiz</td>
+
+                        <td>3° Semestre - B</td>
+
+                        <td><span class="badge badge-active">Activo</span></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>20260003</td>
+
+                        <td>Lucía Fernández Gómez</td>
+
+                        <td>5° Semestre - A</td>
+
+                        <td><span class="badge badge-inactive">Baja</span></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>20260004</td>
+
+                        <td>Carlos Mendoza Ortiz</td>
+
+                        <td>1° Semestre - C</td>
+
+                        <td><span class="badge badge-active">Activo</span></td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+
+
+</body>
+
+</html>

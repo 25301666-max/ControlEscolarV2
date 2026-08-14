@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ControlEscolar.Api/ControlEscolar.Api.csproj" />
+  <Project Path="ControlEscolar.web/ControlEscolar.web.csproj" />
+</Solution>

@@ -1,0 +1,6 @@
+@ControlEscolarV2.Api_HostAddress = http://localhost:5128
+
+GET {{ControlEscolarV2.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

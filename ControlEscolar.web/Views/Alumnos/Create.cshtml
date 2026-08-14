@@ -1,0 +1,401 @@
+﻿@using ControlEscolar.Web.Models
+@model CrearAlumnoDto
+
+@{
+    ViewData["Title"] = "Agregar Alumno";
+
+    var carreras =
+        ViewData["Carreras"] as List<CarreraDto>
+        ?? new List<CarreraDto>();
+
+    var generos =
+        ViewData["Generos"] as List<GeneroDto>
+        ?? new List<GeneroDto>();
+
+    var estados =
+        ViewData["Estados"] as List<EstadoDto>
+        ?? new List<EstadoDto>();
+
+    var municipios =
+        ViewData["Municipios"] as List<MunicipioDto>
+        ?? new List<MunicipioDto>();
+
+    var localidades =
+        ViewData["Localidades"] as List<LocalidadDto>
+        ?? new List<LocalidadDto>();
+}
+
+<div class="container">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2>Agregar Alumno</h2>
+            <p class="text-muted">
+                Ingresa la información del alumno
+            </p>
+        </div>
+
+        <a asp-controller="Alumnos"
+           asp-action="Index"
+           class="btn btn-outline-secondary">
+            Regresar
+        </a>
+
+    </div>
+
+
+    <form asp-controller="Alumnos"
+          asp-action="Create"
+          method="post">
+
+        <div asp-validation-summary="All"
+             class="text-danger mb-3">
+        </div>
+
+
+        <!-- INFORMACIÓN ACADÉMICA -->
+
+        <div class="card mb-4">
+
+            <div class="card-header">
+                <strong>Información académica</strong>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Matricula"
+                               class="form-label">
+                            Matrícula
+                        </label>
+
+                        <input asp-for="Matricula"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label asp-for="IdCarrera"
+                               class="form-label">
+                            Carrera
+                        </label>
+
+                        <select asp-for="IdCarrera"
+                                class="form-select">
+
+                            <option value="0">
+                                Selecciona una carrera
+                            </option>
+
+                            @foreach (CarreraDto carrera in carreras)
+                            {
+                                <option value="@carrera.IdCarrera">
+                                    @carrera.NombreCarrera
+                                </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DATOS PERSONALES -->
+
+        <div class="card mb-4">
+
+            <div class="card-header">
+                <strong>Datos personales</strong>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Nombre"
+                               class="form-label">
+                            Nombre
+                        </label>
+
+                        <input asp-for="Nombre"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label asp-for="FechaNacimiento"
+                               class="form-label">
+                            Fecha de nacimiento
+                        </label>
+
+                        <input asp-for="FechaNacimiento"
+                               type="date"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Curp"
+                               class="form-label">
+                            CURP
+                        </label>
+
+                        <input asp-for="Curp"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label asp-for="IdGenero"
+                               class="form-label">
+                            Género
+                        </label>
+
+                        <select asp-for="IdGenero"
+                                class="form-select">
+
+                            <option value="0">
+                                Selecciona un género
+                            </option>
+
+                            @foreach (GeneroDto genero in generos)
+                            {
+                                <option value="@genero.IdGenero">
+                                    @genero.Nombre
+                                </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Email"
+                               class="form-label">
+                            Correo electrónico
+                        </label>
+
+                        <input asp-for="Email"
+                               type="email"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Telefono"
+                               class="form-label">
+                            Teléfono
+                        </label>
+
+                        <input asp-for="Telefono"
+                               class="form-control" />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DOMICILIO -->
+
+        <div class="card mb-4">
+
+            <div class="card-header">
+                <strong>Domicilio</strong>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Calle"
+                               class="form-label">
+                            Calle
+                        </label>
+
+                        <input asp-for="Calle"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <label asp-for="NumE"
+                               class="form-label">
+                            Número exterior
+                        </label>
+
+                        <input asp-for="NumE"
+                               type="number"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <label asp-for="NumI"
+                               class="form-label">
+                            Número interior
+                        </label>
+
+                        <input asp-for="NumI"
+                               type="number"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <label asp-for="CP"
+                               class="form-label">
+                            Código postal
+                        </label>
+
+                        <input asp-for="CP"
+                               type="number"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <!-- ESTADO -->
+
+                    <div class="col-md-4">
+
+                        <label asp-for="IdEstado"
+                               class="form-label">
+                            Estado
+                        </label>
+
+                        <select asp-for="IdEstado"
+                                class="form-select">
+
+                            <option value="0">
+                                Selecciona un estado
+                            </option>
+
+                            @foreach (EstadoDto estado in estados)
+                            {
+                                <option value="@estado.IdEstado">
+                                    @estado.Nombre
+                                </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MUNICIPIO -->
+
+                    <div class="col-md-4">
+
+                        <label asp-for="IdMunicipio"
+                               class="form-label">
+                            Municipio
+                        </label>
+
+                        <select asp-for="IdMunicipio"
+                                class="form-select">
+
+                            <option value="0">
+                                Selecciona un municipio
+                            </option>
+
+                            @foreach (MunicipioDto municipio in municipios)
+                            {
+                                <option value="@municipio.IdMunicipio">
+                                    @municipio.Nombre
+                                </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- LOCALIDAD -->
+
+                    <div class="col-md-4">
+
+                        <label asp-for="IdLocalidad"
+                               class="form-label">
+                            Localidad
+                        </label>
+
+                        <select asp-for="IdLocalidad"
+                                class="form-select">
+
+                            <option value="0">
+                                Selecciona una localidad
+                            </option>
+
+                            @foreach (LocalidadDto localidad in localidades)
+                            {
+                                <option value="@localidad.IdLocalidad">
+                                    @localidad.Nombre
+                                </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTONES -->
+
+        <div class="d-flex justify-content-end gap-2 mb-5">
+
+            <a asp-controller="Alumnos"
+               asp-action="Index"
+               class="btn btn-outline-secondary">
+                Cancelar
+            </a>
+
+            <button type="submit"
+                    class="btn btn-primary">
+                Guardar Alumno
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
